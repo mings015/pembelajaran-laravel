@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('tes', [TesController::class, 'index']);
 
-Route::get('tes2', [Tes2Controller::class, 'index']);
+Route::get('/', [TesController::class, 'index']);
+
+Route::get('/tambah', [TesController::class, 'formTambah'])->name('tambah.tampilan');
+
+Route::post('/tambah/proses', [TesController::class, 'prosesTambah'])->name('tambah.proses');
