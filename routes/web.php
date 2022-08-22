@@ -17,8 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [TesController::class, 'index']);
+Route::get('/', [TesController::class, 'index'])->name('index.tabel');
 
-Route::get('/tambah', [TesController::class, 'formTambah'])->name('tambah.tampilan');
 
-Route::post('/tambah/proses', [TesController::class, 'prosesTambah'])->name('tambah.proses');
+
+Route::get('tambah', [TesController::class, 'formTambah'])->name('tambah.tampilan');
+
+Route::post('tambah-proses', [TesController::class, 'prosesTambah'])->name('tambah.proses');
+
+//route update
+Route::get('update/{id}', [TesController::class, 'update'])->name('update.tampilan');
+//proses update
+Route::put('proses-update/{id}', [TesController::class, 'prosesUpdate'])->name('update.proses');
+
+//route hapus
+Route::delete('delete/{id}', [TesController::class, 'delete'])->name('delete');
